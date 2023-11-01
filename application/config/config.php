@@ -102,12 +102,12 @@ $config['charset'] = 'UTF-8';
 | setting this variable to TRUE (boolean).  See the user guide for details.
 |
 */
-$config['enable_hooks'] = FALSE;
+$config['enable_hooks'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
 | Class Extension Prefix
-|--------------------------------------------------------------------------
+|----------------------------------------------------------------	----------
 |
 | This item allows you to set the filename/classname prefix when extending
 | native libraries.  For more information please see the user guide:

@@ -369,9 +369,9 @@ class CI_Loader {
 	 * @param	mixed	$params		Database configuration options
 	 * @param	bool	$return 	Whether to return the database object
 	 * @param	bool	$query_builder	Whether to enable Query Builder
-	 *					(overrides the configuration setting)
+	 *					(overrides the configuration setting)d
 	 *
-	 * @return	object|bool	Database object if $return is set to TRUE,
+	 * @return	object|bool	Database object if $return is set to TRUE,d
 	 *					FALSE on failure, CI_Loader instance in any other case
 	 */
 	public function database($params = '', $return = FALSE, $query_builder = NULL)

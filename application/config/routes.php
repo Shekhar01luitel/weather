@@ -39,7 +39,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | provided in the URL cannot be matched to a valid route.
 |
 |	$route['translate_uri_dashes'] = FALSE;
-|
+|		$this->auth();
+
 | This is not exactly a route, but allows you to automatically route
 | controller and method names that contain dashes. '-' isn't a valid
 | class or method name character, so it requires translation.
@@ -49,7 +50,23 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | Examples:	my-controller/index	-> my_controller/index
 |		my-controller/my-method	-> my_controller/my_method
 */
-$route['default_controller'] = 'registration';
+
+// This is login logout and register route 
+$route['default_controller'] = 'welcome';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
-$route['registration'] = 'registration/create';
+$route['login'] = 'login_controller/login/index';
+$route['registration'] = 'login_controller/registration';
+$route['registration/process_registration'] = 'login_controller/Registration/process_registration';
+$route['logout'] = 'login_controller/login/logout';
+
+// Dashboard
+$route['dashboard'] = 'dashboard/Dashboard';
+
+$route['user'] = 'user/User';
+
+$route['admindashboard/setting'] = 'setting/setting';
+
+$route['profile'] = 'setting/profile';
+$route['profile/(:num)'] = 'setting/profile/user_get_by_id_details/$1';
+

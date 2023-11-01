@@ -1,0 +1,12 @@
+create database weather
+
+// make user_table 
+CREATE TABLE users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    email VARCHAR(255) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+add user name and role 
+if no role than asign to user by default and roles are Super admin , admin and user 
