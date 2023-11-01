@@ -18,14 +18,14 @@
 					</ol>
 				</nav>
 				<div class="row">
-					<div class="col-lg-3 col-md-4 d-md-block">
+					<div class="col-lg-3 col-md-4 d-md-block d-none">
 						<div class="card bg-common card-left bg-common">
 							<div class="card-body">
 								<nav class="nav d-md-block d-none">
 									<a data-toggle='tab' class="nav-link active" aria-current="page" href="#profile"><i class="fas fa-user mr-1"></i> Profile</a>
 									<a data-toggle='tab' class="nav-link" href="#account"><i class="fas fa-user-cog mr-1"></i> Account Setting</a>
 									<a data-toggle='tab' class="nav-link" href="#security"><i class="fas fa-user-shield mr-1"></i> Security</a>
-									<a data-toggle='tab' class="nav-link" href="#notification"><i class="fas fa-bell mr-1"></i> Notification</a>
+									<a data-toggle='tab' class="nav-link" href="#permission"><i class="fas fa-bell mr-1"></i> Permission</a>
 								</nav>
 							</div>
 						</div>
@@ -44,7 +44,7 @@
 										<a data-toggle="tab" class="nav-link" href="#security"><i class="fas fa-user-shield mr-1"></i></a>
 									</li>
 									<li class="nav-item">
-										<a data-toggle="tab" class="nav-link" href="#notification"><i class="fas fa-bell mr-1"></i></a>
+										<a data-toggle="tab" class="nav-link" href="#permission"><i class="fas fa-bell mr-1"></i></a>
 									</li>
 								</ul>
 							</div>
@@ -80,11 +80,19 @@
 									<form>
 										<div class="mb-3">
 											<label for="exampleFormControlInput1" class="form-label">Username</label>
-											<input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Anshuman Srivastava">
-											<small class="form-text text-muted">After changing your username , your old username becomes
-												available for anyone else to claim.</small>
+											<input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Tell us about yourself" value="<?= isset($user_data->user_name) ? $user_data->user_name : '' ?>">
+											<small class="form-text text-muted">Must be Unique</small>
 										</div>
 										<hr>
+										<div class="mb-3">
+											<label for="exampleFormControlInput1" class="form-label">Email</label>
+											<input type="text" class="form-control" id="exampleFormControlInput2" placeholder="Tell us about yourself" value="<?= isset($user_data->email) ? $user_data->email : '' ?>">
+											<small class="form-text text-muted">Must be Unique</small>
+										</div>
+										<button class="btn btn-info" type="button">Update Account</button>
+										<hr>
+									</form>
+									<form>
 										<div class="mb-3">
 											<label for="exampleFormControlInput1" class="form-label text-danger">Delete Account</label>
 											<p class="text-muted">One you delete your account , there is no going back. Please be certain</p>
@@ -107,78 +115,37 @@
 											<br>
 											<input type="password" class="form-control" id="exampleFormControlInput1" placeholder="Confirm New Password">
 										</div>
+										<button class="btn btn-info" type="button">Update Account</button>
 									</form>
 									<hr>
 									<form>
 										<div class="form-group">
 											<label class="d-block mb-3">Two Factor Authentication</label>
-											<button class="btn btn-outline-info" type="submit">Enable two-factor Authentication</button>
+											<button class="btn btn-outline-info" type="submit">Enable two-factor Authentication Comming soon!</button>
 											<p class="text-muted small">Two-factor Authentication adds on additional layer of security to your
 												account by requiring more than just a password to log in.</p>
 										</div>
 									</form>
 								</div>
 
-								<!-- actual notification -->
-								<div class="tab-pane" id="notification">
-
-									<h6>NOTIFICATION SETTING</h6>
+								<!-- actual permission -->
+								<div class="tab-pane" id="permission">
+									<h6>PERMISSION SETTINGS</h6>
 									<hr>
 									<form>
 										<div class="mb-3">
-											<label for="exampleFormControlInput1" class="form-label d-block">Security Alerts</label>
-
-											<small class="form-text text-muted">Receive security alert notifications via email.</small>
-											<div class="form-check mt-3">
-												<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-												<label class="form-check-label" for="flexCheckDefault">
-													Email each time a vulnerability
-												</label>
-											</div>
-											<div class="form-check">
-												<input class="form-check-input" type="checkbox" value="" id="flexCheckDefault">
-												<label class="form-check-label" for="flexCheckDefault">
-													Email a digest summary of vulnerability
-												</label>
-											</div>
+											<label for="security_alerts" class="form-label d-block">Security Alerts</label>
+											<small class="form-text text-muted">Receive security alert permissions via email.</small>
+											
 										</div>
 
-										<!-- sms notification -->
 										<div class="mb-3">
-											<label class="d-block mb-2">SMS Notification</label>
+											<label class="d-block mb-2">Permission</label>
 											<ul class="list-group">
-												<li class="list-group-item">
-													Comments
-													<div class="form-check form-switch">
-														<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-													</div>
-												</li>
-												<li class="list-group-item">
-													Update From People
-													<div class="form-check form-switch">
-														<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-													</div>
-												</li>
-												<li class="list-group-item">
-													Reminders
-													<div class="form-check form-switch">
-														<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-													</div>
-												</li>
-												<li class="list-group-item">
-													Events
-													<div class="form-check form-switch">
-														<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-													</div>
-												</li>
-												<li class="list-group-item">
-													Page you Follow
-													<div class="form-check form-switch">
-														<input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
-													</div>
-												</li>
+												
 											</ul>
 										</div>
+										<button class="btn btn-outline-info" type="button">Update Permissions</button>
 									</form>
 								</div>
 							</div>
