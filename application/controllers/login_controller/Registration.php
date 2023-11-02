@@ -37,14 +37,15 @@ class Registration extends CI_Controller
 
 			// Load the User_model
 			$this->load->model('Registration_model');
-
+			$username = $this->generate_unique_username($name);
 			// Check if the email already exists in the database
 			if ($this->Registration_model->is_email_unique($email)) {
 				// Email is unique, proceed with registration
 				$user_data = array(
 					'name' => $name,
 					'email' => $email,
-					'password' => password_hash($password, PASSWORD_DEFAULT)
+					'password' => password_hash($password, PASSWORD_DEFAULT),
+					'username' => $username
 				);
 
 				// Insert user data into the database
@@ -62,5 +63,30 @@ class Registration extends CI_Controller
 				// $this->load->view('login/registration');
 			}
 		}
+	}
+	public function generate_unique_username($name)
+	{
+		// Remove any non-alphanumeric characters and spaces
+		$clean_name = preg_replace('/[^a-zA-Z0-9]+/', '', $name);
+
+		$clean_name = strtolower($clean_name);
+
+		// Check if the username already exists in the database
+		$is_unique = false;
+		$base_username = $clean_name;
+		$username = $base_username;
+		$counter = 1;
+
+		while (!$is_unique) {
+			// Check if the username exists in the database
+			if ($this->Registration_model->is_username_unique($username)) {
+				$is_unique = true;
+			} else {
+				$username = $base_username . $counter;
+				$counter++;
+			}
+		}
+
+		return $username;
 	}
 }

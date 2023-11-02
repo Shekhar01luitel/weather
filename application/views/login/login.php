@@ -26,7 +26,7 @@
 					<div class="d-grid">
 						<button type="submit" class="btn btn-primary">Login</button>
 					</div>
-					<label for="terms" class="form-check-label">Not Registered <a href="<?=base_url('register') ?>">Register</a></label>
+					<label for="terms" class="form-check-label">Not Registered <a href="<?=base_url('registration') ?>">Register</a></label>
 				</form>
 			</div>
 		</div>

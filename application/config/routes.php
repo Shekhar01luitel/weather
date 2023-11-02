@@ -69,4 +69,10 @@ $route['admindashboard/setting'] = 'setting/setting';
 
 $route['profile'] = 'setting/profile';
 $route['profile/(:num)'] = 'setting/profile/user_get_by_id_details/$1';
+$route['profile/update/(:num)'] = 'setting/profile/update_profile/$1';
+$route['profile/updates/(:num)'] = 'setting/profile/update_account/$1';
+$route['profile/delete/(:num)'] = 'setting/profile/delete_user_by_id/$1';
+$route['profile/password/(:num)'] = 'setting/profile/update_password/$1';
+$route['profile/role/(:num)'] = 'setting/profile/update_role/$1';
+
 

@@ -12,7 +12,9 @@ class User extends CI_Controller
 
 	public function index()
 	{
-		$data['users'] = $this->User_model->get_all_users();
+		$data['super_admin'] = $this->User_model->get_super_admin();
+		$data['admin'] = $this->User_model->get_admin();
+		$data['users'] = $this->User_model->get_user();
         $this->load->view('Dashboard/user', $data);
 	}
 

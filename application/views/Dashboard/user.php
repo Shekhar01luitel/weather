@@ -48,7 +48,13 @@
 												</tr>
 											</thead>
 											<tbody>
-												<!-- Loop through admins data in a similar way -->
+												<?php foreach ($super_admin as $user) : ?>
+													<tr>
+														<td><a href="<?= base_url('profile') ?>/<?= $user->id ?>"><?= $user->name ?></a></td>
+														<td><a href="<?= base_url('profile') ?>/<?= $user->id ?>"><?= $user->email ?></a></td>
+													</tr>
+
+												<?php endforeach; ?>
 											</tbody>
 										</table>
 									</div>
@@ -66,7 +72,13 @@
 												</tr>
 											</thead>
 											<tbody>
-												<!-- Loop through admins data in a similar way -->
+												<?php foreach ($admin as $user) : ?>
+													<tr>
+														<td><a href="<?= base_url('profile') ?>/<?= $user->id ?>"><?= $user->name ?></a></td>
+														<td><a href="<?= base_url('profile') ?>/<?= $user->id ?>"><?= $user->email ?></a></td>
+													</tr>
+
+												<?php endforeach; ?>
 											</tbody>
 										</table>
 									</div>

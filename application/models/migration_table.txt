@@ -10,3 +10,5 @@ CREATE TABLE users (
 
 add user name and role 
 if no role than asign to user by default and roles are Super admin , admin and user 
+a
+
